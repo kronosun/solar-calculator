@@ -24,21 +24,21 @@ class MapMenu extends Component<IMapMenuProps, IMapMenuState> {
 			}}>
 				<div className="map-directions">
 					<div className={'direction-zoom' + (this.props.selectedDirection === 'zoom' ? ' direction--selected' : '')}>
-						1. Zoom into the map
+						1. Zoomer sur la carte
 					</div>
 					<div className={'direction-click' + (this.props.selectedDirection === 'click' ? ' direction--selected' : '')}>
-						2. Click to outline a solar array area, 
+						2. Cliquer sur les 4 coins de la toiture de votre maison
 						<br/>
-						click the first point to close the area
+						Terminer par un clic sur le coin de depart afin de cloturer la zone
 					</div>
 					<div className={'direction-adjust' + (this.props.selectedDirection === 'adjust' ? ' direction--selected' : '')}>
-						3. Select and drag points to update the solar array
+						3. Nous allons calculer votre potentiel solaire.
 					</div>
 				</div>
 				{this.props.solarCalculationState !== SolarCalculationState.blank ? 
 				<div className="solar-calculation">
 					<div className="solar-calculation__header">
-						Solar Energy
+						Votre potentiel
 						<div className={solarCalculationStateClass} title={this.props.solarCalculationStateMessage ? 
 							this.props.solarCalculationStateMessage : ''}>
 							<div className="dot dot--1"></div>
@@ -50,10 +50,10 @@ class MapMenu extends Component<IMapMenuProps, IMapMenuState> {
 					<div className="immediate-calculations">
 						<div className="section-divider"></div>
 						<div className="calculation-line">
-							Area: <b>{Math.round(this.props.area)} m²</b>
+							Surface déterminée : <b>{Math.round(this.props.area)} m²</b>
 						</div>
 						<div className="calculation-line">
-							Nominal power: <b>{Math.round(this.props.nominalPower)} kWdc</b>
+							Potentiel de production solaire : <b>{Math.round(this.props.nominalPower)} kWdc</b>
 						</div>
 					</div>
 					: null}
@@ -62,6 +62,7 @@ class MapMenu extends Component<IMapMenuProps, IMapMenuState> {
 				<style jsx>
 					{`
 					.map-menu {
+						display: none;
 						position: absolute;
 						top: 0;
 						left: 0;
@@ -77,6 +78,7 @@ class MapMenu extends Component<IMapMenuProps, IMapMenuState> {
 
 					@media screen and (max-width: 640px) {
 						.map-menu {
+							display: none;
 							width: 80%;
 							height: 600px;
 							top: auto;
@@ -86,11 +88,13 @@ class MapMenu extends Component<IMapMenuProps, IMapMenuState> {
 							transition: bottom 0.3s ease;
 						}
 						.map-menu.map-menu--expanded {
+							display: none;
 							bottom: 0;
 						}
 					}
 
 					.map-directions {
+						display: none;
     					margin: 12px;
 						font-size: 17px;
 					}
@@ -105,11 +109,13 @@ class MapMenu extends Component<IMapMenuProps, IMapMenuState> {
 					}
 
 					.solar-calculation {
+						display: none;
 						display: flex;
 						flex-direction: column;
 					}
 
 					.solar-calculation__header {
+						display: none;
 						height: 40px;
 						display: flex;
 						align-items: flex-end;
@@ -120,6 +126,7 @@ class MapMenu extends Component<IMapMenuProps, IMapMenuState> {
 					}
 
 					.solar-calculation__state {
+						display: none;
 						position: relative;
 						width: 40px;
 						height: 40px;

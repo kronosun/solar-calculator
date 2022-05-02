@@ -61,6 +61,7 @@ class SolarMap extends Component<ISolarMapProps, ISolarMapState> {
 				<style jsx global>
 					{`
 					.mapboxgl-ctrl-top-right {
+						width: 45%;
 						display: flex;
 						align-items: center;
 					}
@@ -81,7 +82,7 @@ class SolarMap extends Component<ISolarMapProps, ISolarMapState> {
 		const map = new mapboxgl.Map({
 			container: 'mapbox-container',
 			style: 'mapbox://styles/mapbox/satellite-streets-v11',
-			center: [48.917,14.436],
+			center: [47.917,12.436],
 			zoom: 3.33,
 		});
 
@@ -187,14 +188,14 @@ class SolarMap extends Component<ISolarMapProps, ISolarMapState> {
 		const area = turf.area(polygonData); // square meters
 		const nominalPower = area * this.moduleEfficiency; // DC System Size in kW
 		if (nominalPower > 500000)
-			throw "System capacity exceeds the maximum, please reduce the area or decrease module efficiency.";
+			throw "Nous dépassons la surface maximale autorisée, restons concentré svp.";
 
 		if (nominalPower < 0.05)
-			throw "System capacity does not meet minimum, please increase the area or module efficiency.";
+			throw "La surface minimale requise n'est pas atteinte, recommencons svp.";
 
 		const centroid = turf.centroid(polygonData);
 		if (!centroid.geometry)
-			throw "Could not calculate centroid of polygon.";
+			throw "Impossible de déterminer le polygone central";
 
 		const [lon, lat] = centroid.geometry.coordinates;
 
