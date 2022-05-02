@@ -77,7 +77,7 @@ class SolarMap extends Component<ISolarMapProps, ISolarMapState> {
 	public componentDidMount() {
 
 		// Set up mapbox
-		mapboxgl.accessToken = 'pk.eyJ1IjoibHJ2b2xsZSIsImEiOiJjajFpcndxN2swMWJ0MnFvaG1uaWNlOHVkIn0.ptRQFGDH9slee6PowWtXOg';
+		mapboxgl.accessToken = 'pk.eyJ1IjoibXVzdGFyayIsImEiOiJjbDJmc2J0ZTcwOG8zM2RwY3ExMTNia3JxIn0.1eSRzbjwRod60HZox5H5Lw';
 
 		const map = new mapboxgl.Map({
 			container: 'mapbox-container',
