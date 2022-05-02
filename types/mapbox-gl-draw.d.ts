@@ -4,6 +4,7 @@ declare namespace __MapboxDraw {
     interface Options {
         displayControlsDefault?: boolean,
         controls?: DrawControls,
+        placeholder?: 'Addresse ?',
         defaultMode?: string,
         styles?: { [key: string]: any; }[],
     }

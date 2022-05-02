@@ -22,14 +22,14 @@ class SolarValueTable extends Component<ISolarValueTableProps, ISolarValueTableS
 
 					<div className="solar-value-header">Solar Radiation</div>
 					{this.props.solarValues.solrad_monthly.map(value =>
-						(<div className="solar-value"><b>{Math.round(value * 100) / 100}</b> <span className="value-unit"> kWh/m²/day</span></div>))}
+						(<div className="solar-value"><b>{Math.round(value * 100) / 100}</b> <span className="value-unit"> kWh/m²/jour</span></div>))}
 
 					<div className="solar-value-header">AC Energy</div>
 					{this.props.solarValues.ac_monthly.map(value =>
 						(<div className="solar-value"><b>{Math.round(value)}</b> <span className="value-unit"> kWh</span></div>))}
 				</div>
 
-				<div className="solar-value-footer">Total: <b>{Math.round(this.props.solarValues.ac_annual)}</b> <span className="value-unit"> kWh/Year</span></div>
+				<div className="solar-value-footer">Total: <b>{Math.round(this.props.solarValues.ac_annual)}</b> <span className="value-unit"> kWh/année</span></div>
 
 				<style jsx>
 					{`

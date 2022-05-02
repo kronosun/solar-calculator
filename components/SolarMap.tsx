@@ -82,10 +82,15 @@ class SolarMap extends Component<ISolarMapProps, ISolarMapState> {
 		const map = new mapboxgl.Map({
 			container: 'mapbox-container',
 			style: 'mapbox://styles/mapbox/satellite-streets-v11',
-			center: [47.917,12.436],
+			center: [43.917,14.436],
 			zoom: 3.33,
 		});
-
+		window.top.postMessage('hello master - map is launching', '*');
+		window.onmessage = function(e) {
+	    if (e.data == '') {
+		        alert('It works!');
+		    }
+		};
 		// Set default drawing mode to static, so that polygons can only be drawn when zoomed in
 		MapboxDraw.modes.static = StaticMode;
 		const draw = new MapboxDraw({
