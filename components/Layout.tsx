@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+
+/* Define your class */
 class Layout extends Component<ILayoutProps, ILayoutState> {
 	constructor(props: ILayoutProps) {
 		super(props);
